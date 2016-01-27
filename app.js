@@ -244,6 +244,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
       var appName = queryArray[2];
        request.put('https://api.distelli.com/' + secrets.team.username + '/apps/' + appName + '?apiToken='
         + secrets.users[username], function (error, response, body){
+          console.log(error);
           if(!error && response.statusCode == 200){
             var contents = JSON.parse(body);
             returnData = "App *" + appName + "* has been created "  + username + " :thumbsup:";
