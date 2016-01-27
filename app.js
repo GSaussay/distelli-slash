@@ -240,6 +240,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
     //Create app [appName]
     else if(query.substring(0, 10) == "create app"){
       var queryArray = query.split(" ");
+      console.log(query, queryArray);
       var appName = queryArray[2];
        request.put('https://api.distelli.com/' + secrets.team.username + '/apps/' + appName + '?apiToken='
         + secrets.users[username], function (error, response, body){
