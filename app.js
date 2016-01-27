@@ -296,26 +296,26 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
         })
     }
 
-    //List releases for app [appName]
-    else if(query.substring(0, 21) == "list releases for app"){
-      var queryArray = query.split(" ");
-      var appName = queryArray[4];
-       request('https://api.distelli.com/' + secrets.team.username + '/apps/' + appName + '/releases?apiToken='
-        + secrets.users[username] + '&max_results=25&order=desc', function (error, response, body){
-          if(!error && response.statusCode == 200){
-            var contents = JSON.parse(body);
-            var returnData = [];
-            for(var i = 0; i < contents.releases.length; i++){
-              var desc = contents.releases[i].description;
-              returnData.push("<" + contents.releases[i].html_url + "|" + contents.releases[i].release_version + ": " + desc  + ">");
-            }
-          }
-          else{
-            returnData = "We couldn't find app " + appName + ", " + username + "!";
-            callback(returnData);
-          }
-        })
-      }
+    // //List releases for app [appName]
+    // else if(query.substring(0, 21) == "list releases for app"){
+    //   var queryArray = query.split(" ");
+    //   var appName = queryArray[4];
+    //    request('https://api.distelli.com/' + secrets.team.username + '/apps/' + appName + '/releases?apiToken='
+    //     + secrets.users[username] + '&max_results=25&order=desc', function (error, response, body){
+    //       if(!error && response.statusCode == 200){
+    //         var contents = JSON.parse(body);
+    //         var returnData = [];
+    //         for(var i = 0; i < contents.releases.length; i++){
+    //           var desc = contents.releases[i].description;
+    //           returnData.push("<" + contents.releases[i].html_url + "|" + contents.releases[i].release_version + ": " + desc  + ">");
+    //         }
+    //       }
+    //       else{
+    //         returnData = "We couldn't find app " + appName + ", " + username + "!";
+    //         callback(returnData);
+    //       }
+    //     })
+    //   }
 
     //Latest release for app [appName]
     else if(query.substring(0, 22) == "latest release for app"){
@@ -328,7 +328,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
             contents.releases[0].release_version;
             returnData = "Here's the latest release for " + appName + ", " + username + ": " +
             contents.releases[0].release_version + ": " + contents.releases[0].description;
-            callback(returnData);
+
           }
           else{
             returnData = "We couldn't find app " + appName + ", " + username + "!";
