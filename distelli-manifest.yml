@@ -4,7 +4,6 @@ alexleventer/Distelli-Slash:
 
   PreRelease:
     - npm install
-    #- 'npm test' TODO: needs to write tests!
 
   PreInstall:
     - sudo apt-get -y update
