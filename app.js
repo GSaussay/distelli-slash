@@ -24,7 +24,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
   if(slacktoken == secrets.team.slackToken && slackteam_id == secrets.team.slackTeam){
 
   //List apps
-    if(query === "list apps"){
+    if(query == "list apps"){
       request('https://api.distelli.com/' + secrets.team.username + '/apps?apiToken='
         + secrets.users[username] + '&max_results=50', function (error, response, body){
           if(!error && response.statusCode == 200){
@@ -66,7 +66,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
     }
 
     //List builds
-    else if(query === "list builds"){
+    else if(query == "list builds"){
        request('https://api.distelli.com/' + secrets.team.username + '/builds?apiToken='
         + secrets.users[username] + '&max_results=50&order=desc', function (error, response, body){
           if(!error && response.statusCode == 200){
@@ -110,7 +110,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
     }
 
     //List servers
-    else if(query === "list servers"){
+    else if(query == "list servers"){
       request('https://api.distelli.com/' + secrets.team.username + '/servers?apiToken='
         + secrets.users[username] + '&max_results=50', function (error, response, body) {
           if(!error && response.statusCode == 200){
@@ -152,7 +152,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
     }
 
     //List envs
-    else if(query === "list envs"){
+    else if(query == "list envs"){
        request('https://api.distelli.com/' + secrets.team.username + '/envs?apiToken='
         + secrets.users[username] + '&max_results=25', function (error, response, body){
           if(!error && response.statusCode == 200){
@@ -172,7 +172,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
     }
 
     //List envs for app [appName]
-    else if(query === "list envs for app"){
+    else if(query == "list envs for app"){
       var queryArray = query.split(" ");
       var appName = queryArray[4];
        request('https://api.distelli.com/' + secrets.team.username + '/apps/' + appName + '/envs?apiToken='
@@ -194,7 +194,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
     }
 
     //List envs after [envName]
-    else if(query.substring(0, 15) === "list envs after"){
+    else if(query.substring(0, 15) == "list envs after"){
       var queryArray = query.split(" ");
       var marker = queryArray[3];
       request('https://api.distelli.com/' + secrets.team.username + '/envs?apiToken='
@@ -216,7 +216,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
     }
 
     //List servers for env [envName]
-    else if(query.substring(0, 20) === "list servers for env"){
+    else if(query.substring(0, 21) == "list servers for env"){
       var queryArray = query.split(" ");
       var envName = queryArray[4];
        request('https://api.distelli.com/' + secrets.team.username + '/envs/' + envName + '/servers?apiToken='
@@ -238,7 +238,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
     }
 
     //Create app [appName]
-    else if(query.substring(0, 10) === "create app"){
+    else if(query.substring(0, 10) == "create app"){
       var queryArray = query.split(" ");
       var appName = queryArray[2];
        request.put('https://api.distelli.com/' + secrets.team.username + '/apps/' + appName + '?apiToken='
@@ -256,7 +256,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
      }
 
      //Create env [envName] for app
-     else if(query.substring(0, 9) === "create env"){
+     else if(query.substring(0, 10) == "create env"){
       var queryArray = query.split(" ");
       var envName = queryArray[2];
       var appName = queryArray[5];
@@ -276,7 +276,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
     }
 
     //Restart env [envName]
-    else if(query.substring(0, 9) === "restart env"){
+    else if(query.substring(0, 11) == "restart env"){
       var queryArray = query.split(" ");
       var envName = queryArray[2];
       var appName = queryArray[5];
@@ -297,7 +297,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
     }
 
     //List releases for app [appName]
-    else if(query.substring(0, 21) === "list releases for app"){
+    else if(query.substring(0, 21) == "list releases for app"){
       var queryArray = query.split(" ");
       var appName = queryArray[4];
        request('https://api.distelli.com/' + secrets.team.username + '/apps/' + appName + '/releases?apiToken='
@@ -318,7 +318,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
       }
 
     //Latest release for app [appName]
-    else if(query.substring(0, 22) === "latest release for app"){
+    else if(query.substring(0, 22) == "latest release for app"){
       var queryArray = query.split(" ");
       var appName = queryArray[4];
        request('https://api.distelli.com/' + secrets.team.username + '/apps/' + appName + '/releases?apiToken='
@@ -338,7 +338,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
      }
 
      //Deploy latest to env [envName]
-     else if(query.substring(0, 20) === "deploy latest to env"){
+     else if(query.substring(0, 20) == "deploy latest to env"){
       var queryArray = query.split(" ");
       var envName = queryArray[4];
       request('https://api.distelli.com/' + secrets.team.username + '/envs/' + envName + '?apiToken='
@@ -379,7 +379,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
     }
 
     //Deploy [releaseNum] to env [envName]
-    else if(query.substring(0, 8) === "deploy v"){
+    else if(query.substring(0, 8) == "deploy v"){
       var queryArray = query.split(" ");
       var releaseNum = queryArray[1];
       var envName = queryArray[4];
@@ -401,7 +401,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
      }
 
     //Help
-    else if(query === 'help'){
+    else if(query == 'help'){
       returnData = "Here are the commands I recognize:\n•List Apps\n•List Builds\n•List Envs\n•List Servers\n" +
       "•List Servers for Env [Env Name]\n•List Release for App [App Name]\n•Create App [App Name]\n" +
       "•Create Env [Env Name] for App [AppName]\n•Restart Env [Env Name]\n•Latest release for app [appName]\n" +
