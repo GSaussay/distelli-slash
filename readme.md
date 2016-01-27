@@ -13,14 +13,14 @@ Build and deploy your app entirely from Slack w/ the Slash command: `/distelli`.
 6. Update the first line of your distelli-manifest.yml file to use your Distelli username instead of **alexleventer** and push the repository.
 7. Build your application **DistelliSlash**.
 8. Add a server and deploy the latest release of **DistelliSlash** to environment **DistelliSlash-Prod**.
-9. Create an apiToken. (https://www.distelli.com/username/settings?section=API)
-10. Create the following environment variables on environment **distellislash-prod**: `USERNAME=your-userName`, `SLACKTOKEN=your-slacktoken`, `SLACKTEAM=your-slackteamid` & `APITOKEN=your-apiToken` (https://www.distelli.com/username/envs/distellislash-prod). You can find you team id here: https://api.slack.com/methods/team.info/test.
+10. Create the following environment variables on environment **distellislash-prod**: `USERNAME=your-userName`, `SLACKTOKEN=INSERT-TOKEN-RECEIVED-WHEN-CREATING-SLASH-COMMAND`, `SLACKTEAM=your-slackteamid` & `APITOKEN=your-apiToken` (https://www.distelli.com/username/envs/distellislash-prod). You can find you team id here: https://api.slack.com/methods/team.info/test.
 11. Edit the users section of your secrets.js to specify Slack Username, and then the API Token associated with each individual user's Distelli account.
 
 ###Set up in Slack
 1. Navigate to https://username.slack.com/services/new/slash-commands
 2. In the choose command textbox, enter **/distelli** and hit the green **Add Slash Command Integration** button.
 3. In the URL textbox, enter the IP you deployed your app to with **:3000** at the end to specify port 3000.
+4. Set the token recieved during this as your `SLACKTOKEN` environment variable.
 
 It should look something like this when you're done:
 ![Alt text](https://monosnap.com/file/IEcnSl09wWXPaHDTEAMpPpXxBXqayz.png)
