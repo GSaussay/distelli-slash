@@ -5,7 +5,7 @@ module.exports = {
     slackTeam: process.env.SLACKTEAM
   },
   users: {
-    //Replace with your Slack UserName: Set an Env variable with your Distelli API Token
+    //Replace with your Slack User Name: Set an environment variable with your Distelli API Token
     "al": process.env.APITOKEN,
     "rsingh": process.env.APITOKEN,
     "boris": process.env.APITOKEN
