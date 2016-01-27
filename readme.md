@@ -10,11 +10,12 @@ Build and deploy your app entirely from Slack w/ the Slash command: `/distelli`.
 3. If you haven't done so already, connect a GitHub account.
 4. Connect your application to your forked repository.
 5. Create an environment named **DistelliSlash-Prod**.
-6. Update the first line of your distelli-manifest.yml file to use your Distelli username instead of **distelli** and push the repository.
+6. Update the first line of your distelli-manifest.yml file to use your Distelli username instead of **alexleventer** and push the repository.
 7. Build your application **DistelliSlash**.
 8. Add a server and deploy the latest release of **DistelliSlash** to environment **DistelliSlash-Prod**.
 9. Create an apiToken. (https://www.distelli.com/username/settings?section=API)
-10. Create the following environment variables on environment **distellislash-prod**: `USERNAME=your-userName`, `SLACKTOKEN=your-slacktoken`, `SLACKTEAM=your-slackteamid` & `APITOKEN=your-apiToken` (https://www.distelli.com/username/envs/distellislash-prod). You can find you team id here: https://api.slack.com/methods/team.info/test. Your nv should look something like this when you're complete:
+10. Create the following environment variables on environment **distellislash-prod**: `USERNAME=your-userName`, `SLACKTOKEN=your-slacktoken`, `SLACKTEAM=your-slackteamid` & `APITOKEN=your-apiToken` (https://www.distelli.com/username/envs/distellislash-prod). You can find you team id here: https://api.slack.com/methods/team.info/test.
+11. Edit the users section of your secrets.js to specify Slack Username, and then the API Token associated with each individual user's Distelli account.
 
 ###Set up in Slack
 1. Navigate to https://username.slack.com/services/new/slash-commands
