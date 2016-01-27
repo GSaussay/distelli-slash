@@ -241,9 +241,9 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
     else if(query.substring(0, 10) == "create app"){
       var queryArray = query.split(" ");
       var appName = queryArray[2];
-       request({type: "PUT", url: 'https://api.distelli.com/' + secrets.team.username + '/apps/' + appName + '?apiToken='
-        + secrets.users[username], {headers: 'content-type:': 'application/json'}}), function (error, response, body){
-          console.log(response.statusCode, response);
+       request.put({headers: {'content-type' : 'application/json'}, url: 'https://api.distelli.com/' + secrets.team.username + '/apps/' + appName + '?apiToken='
+        + secrets.users[username] + ''}), function(error, response, body){
+        console.log(response.statusCode);
           if(!error && response.statusCode == 200){
             var contents = JSON.parse(body);
             console.log(body);
@@ -254,7 +254,7 @@ function processQuery(slacktoken, slackteam_id, query, username, callback){
             returnData = "Uh-oh, looks like something went wrong " + username + "!";
             callback(returnData);
           }
-        })
+        }
      }
 
      //Create env [envName] for app
