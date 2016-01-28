@@ -1,5 +1,5 @@
 #Distelli-Slash
-Build and deploy your app entirely from Slack w/ the Slash command: `/distelli`.
+Build and deploy your app entirely from Slack w/ the Slash command: `/distelli`. Note: This is not a fun side-project, this is not an official Distelli release.
 ![Alt text](http://try.distelli.com/hubfs/deploy-env.gif)
 
 ##Installation:
@@ -26,11 +26,11 @@ It should look something like this when you're done:
 ![Alt text](https://monosnap.com/file/IEcnSl09wWXPaHDTEAMpPpXxBXqayz.png)
 
 ##Things you can do:
-1. `/distelli List Apps`: List all apps associated with your Distelli account. Use the command `List Apps After [AppName]` to see the next page of results.
-2. `/distelli List Envs`: List all envs associated with your Distelli account. Use the command `List Envs After [EnvName]` to see the next page of results.
+1. `/distelli List Apps`: List all apps associated with your Distelli account.
+2. `/distelli List Envs`: List all envs associated with your Distelli account.
 3. `/distelli List Envs for [AppName]`: List all envs associated with a Distelli app.
-4. `/distelli List Builds`: List all builds associated with your Distelli account. Use the command `List Builds After [BuildNum]` to see the next page of results.
-5. `/distelli List Servers`: List all servers associated with your Distelli account. Use the command `List Servers After [ServerName]` to see the next page of results.
+4. `/distelli List Builds`: List all builds associated with your Distelli account.
+5. `/distelli List Servers`: List all servers associated with your Distelli account.
 6. `/distelli List Servers for Env [EnvName]`: List all servers associated with an app enviroment.
 7. `/distelli List Releases for App [AppName]`: List all releases associated with an app.
 8. `/distelli Create App [App Name]`: Create a Distelli application.
