@@ -5,13 +5,6 @@ distelli/Distelli-Slash:
   PreRelease:
     - npm install
 
-  PreInstall:
-    - sudo apt-get -y update
-    - sudo apt-get -y install npm
-    - sudo npm cache clean -f
-    - sudo npm install -g n
-    - sudo n stable
-
   PostInstall:
     - npm install
     - npm update
