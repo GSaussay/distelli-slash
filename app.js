@@ -153,7 +153,6 @@ function processQuery(slackToken, slackTeamId, query, username, callback) {
         url: `${endPoint}/apps/${appName}?apiToken=${secrets.users[username]}`}, function(error, response, body) {
           if (!error && response.statusCode == 200) {
             var contents = JSON.parse(body);
-            console.log(body);
             returnData = `App *${appName}* has been created ${username} :thumbsup:`;
             callback(returnData);
           }
