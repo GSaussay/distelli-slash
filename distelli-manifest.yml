@@ -10,4 +10,4 @@ distelli/Distelli-Slash:
     - npm update
 
   Exec:
-    - /usr/bin/nodejs app.js
+    - /usr/local/bin/node app.js
